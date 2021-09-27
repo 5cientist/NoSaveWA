@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
           centerTitle: true,
           title: "NoSaveWA".text.make(),
         ),
-        drawer: Drawer(),
+        // drawer: Drawer(),
         body: Column(
           children: [
             SizedBox(
