@@ -34,7 +34,7 @@ class HomeView extends StatelessWidget {
               autofocus: true,
               borderType: VxTextFieldBorderType.underLine,
               borderColor: Colors.green,
-              hint: "Mobile Number",
+              hint: "+91-XXXXXXXXXX",
               cursorColor: Colors.green,
               enableSuggestions: true,
               controller: mobilenumber,
@@ -53,8 +53,8 @@ class HomeView extends StatelessWidget {
               hint: "Type your message",
               maxLine: 9,
             ).box.p16.make().centered(),
-            MaterialButton(
-              color: Colors.green[800],
+            ElevatedButton(
+              // color: Colors.green[800],
               onPressed: () {
                 addMessage();
               },
