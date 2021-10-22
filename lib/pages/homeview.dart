@@ -8,9 +8,11 @@ class HomeView extends StatelessWidget {
 
   final typedText = TextEditingController();
 
+  final defaultCode = '+91';
+
   void addMessage() {
     final _url =
-        'https://api.whatsapp.com/send/?phone=${mobilenumber.text}&text=${typedText.text}';
+        'https://api.whatsapp.com/send/?phone=${defaultCode + mobilenumber.text}&text=${typedText.text}';
     print(_url);
     launch(_url);
   }
@@ -25,43 +27,45 @@ class HomeView extends StatelessWidget {
           title: "NoSaveWA".text.make(),
         ),
         // drawer: Drawer(),
-        body: Column(
-          children: [
-            SizedBox(
-              height: 5,
-            ),
-            VxTextField(
-              autofocus: true,
-              borderType: VxTextFieldBorderType.underLine,
-              borderColor: Colors.green,
-              hint: "+91-XXXXXXXXXX",
-              cursorColor: Colors.green,
-              enableSuggestions: true,
-              controller: mobilenumber,
-              keyboardType: TextInputType.phone,
-              textInputAction: TextInputAction.done,
-            ).p16(),
-            SizedBox(
-              height: 5,
-            ),
-            VxCard("Enter your message".text.make()).red600.make().centered(),
-            VxTextField(
-              controller: typedText,
-              autofocus: true,
-              borderColor: Colors.green,
-              borderType: VxTextFieldBorderType.underLine,
-              hint: "Type your message",
-              maxLine: 9,
-            ).box.p16.make().centered(),
-            ElevatedButton(
-              // color: Colors.green[800],
-              onPressed: () {
-                addMessage();
-              },
-              child: "Send".text.lg.make(),
-            ).p1(),
-          ],
-        ).centered(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 5,
+              ),
+              VxTextField(
+                autofocus: true,
+                borderType: VxTextFieldBorderType.underLine,
+                borderColor: Colors.green,
+                hint: "9895XXXXXX",
+                cursorColor: Colors.green,
+                enableSuggestions: true,
+                controller: mobilenumber,
+                keyboardType: TextInputType.phone,
+                textInputAction: TextInputAction.done,
+              ).p16(),
+              SizedBox(
+                height: 5,
+              ),
+              VxCard("Enter your message".text.make()).red600.make().centered(),
+              VxTextField(
+                controller: typedText,
+                autofocus: true,
+                borderColor: Colors.green,
+                borderType: VxTextFieldBorderType.underLine,
+                hint: "Type your message",
+                maxLine: 9,
+              ).box.p16.make().centered(),
+              ElevatedButton(
+                // color: Colors.green[800],
+                onPressed: () {
+                  addMessage();
+                },
+                child: "Send".text.lg.make(),
+              ).p1(),
+            ],
+          ).centered(),
+        ),
       ),
     );
   }
