@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeView extends StatelessWidget {
   final mobilenumber = TextEditingController();
-
   final typedText = TextEditingController();
-
   final defaultCode = '+91';
 
   void addMessage() {
@@ -24,7 +23,14 @@ class HomeView extends StatelessWidget {
         backgroundColor: Colors.black26,
         appBar: VxAppBar(
           centerTitle: true,
-          title: "NoSaveWA".text.make(),
+          title: Text(
+            "NoSaveWA",
+            style: GoogleFonts.hennyPenny(
+              color: Colors.lightGreenAccent,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2,
+            ),
+          ),
         ),
         // drawer: Drawer(),
         body: SingleChildScrollView(
@@ -35,14 +41,14 @@ class HomeView extends StatelessWidget {
               ),
               VxTextField(
                 autofocus: true,
-                borderType: VxTextFieldBorderType.underLine,
+                borderType: VxTextFieldBorderType.roundLine,
                 borderColor: Colors.green,
                 hint: "9895XXXXXX",
                 cursorColor: Colors.green,
                 enableSuggestions: true,
                 controller: mobilenumber,
                 keyboardType: TextInputType.phone,
-                textInputAction: TextInputAction.done,
+                textInputAction: TextInputAction.next,
               ).p16(),
               SizedBox(
                 height: 5,
@@ -54,7 +60,11 @@ class HomeView extends StatelessWidget {
                 borderColor: Colors.green,
                 borderType: VxTextFieldBorderType.underLine,
                 hint: "Type your message",
+                clear: true,
                 maxLine: 9,
+                prefixIcon: Icon(
+                  Icons.message_rounded,
+                ),
               ).box.p16.make().centered(),
               ElevatedButton(
                 // color: Colors.green[800],
