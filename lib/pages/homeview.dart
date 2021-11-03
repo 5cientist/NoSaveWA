@@ -36,36 +36,49 @@ class HomeView extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 5,
-              ),
-              VxTextField(
-                autofocus: true,
-                borderType: VxTextFieldBorderType.roundLine,
-                borderColor: Colors.green,
-                hint: "9895XXXXXX",
-                cursorColor: Colors.green,
-                enableSuggestions: true,
+              Divider(),
+
+              TextField(
                 controller: mobilenumber,
+                cursorColor: Colors.greenAccent,
+                decoration: InputDecoration(
+                  enabled: true,
+                  border: OutlineInputBorder(),
+                  filled: false,
+                  fillColor: Colors.green,
+                  hintText: '871432xxxx',
+                  labelText: 'Enter your mobile number',
+                ),
+                enableInteractiveSelection: true,
+                maxLength: 10,
                 keyboardType: TextInputType.phone,
                 textInputAction: TextInputAction.next,
-              ).p16(),
+                autocorrect: true,
+              ),
+
               SizedBox(
                 height: 5,
               ),
+
               VxCard("Enter your message".text.make()).red600.make().centered(),
-              VxTextField(
+              Divider(),
+              //
+
+              TextFormField(
                 controller: typedText,
                 autofocus: true,
-                borderColor: Colors.green,
-                borderType: VxTextFieldBorderType.underLine,
-                hint: "Type your message",
-                clear: true,
-                maxLine: 9,
-                prefixIcon: Icon(
-                  Icons.message_rounded,
+                maxLength: 20,
+                decoration: InputDecoration(
+                  hintText: 'Type your measseage',
+                  alignLabelWithHint: true,
+                  labelText: 'Enter you meassage',
+                  hintMaxLines: 10,
+                  border: OutlineInputBorder(),
                 ),
-              ).box.p16.make().centered(),
+                maxLines: 10,
+                minLines: 10,
+              ),
+
               ElevatedButton(
                 // color: Colors.green[800],
                 onPressed: () {
