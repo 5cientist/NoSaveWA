@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
     final _url =
         'https://api.whatsapp.com/send/?phone=${mobilenumber.text}&text=${typedText.text}';
     print(_url);
-    launch(_url);
+    launchUrl(Uri.parse(_url));
   }
 
   @override
